@@ -1,9 +1,7 @@
 FROM jboss/keycloak:latest
 
-WORKDIR /opt/keycloak
 COPY docker-entrypoint.sh /opt/jboss/tools
-COPY keywind.jar /opt/keycloak/providers
-ADD  keywind.jar /opt/keycloak/providers/keywind.jar
+COPY  keywind /opt/jboss/keycloak/themes/keywind
 
 ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh" ]
 CMD ["-b", "0.0.0.0"]
